@@ -563,7 +563,15 @@ export async function getLocations() {
 
 export async function getLocationById(id: string) {
   if (await isDbConnected()) {
-    return await Location.findById(id);
+    const isHex = /^[0-9a-fA-F]{24}$/.test(id);
+    if (isHex) {
+      try {
+        const loc = await Location.findById(id);
+        if (loc) return loc;
+      } catch (err) {
+        console.error('Error finding location by ID:', err);
+      }
+    }
   }
   return mockLocations.find(l => l._id === id) || null;
 }
