@@ -8,6 +8,8 @@ import * as dbService from '@/lib/dbService';
 import { ArrowLeft, Calendar, User, Tag, Share2 } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 interface NewsDetailPageProps {
   params: Promise<{ slug: string }>;
 }

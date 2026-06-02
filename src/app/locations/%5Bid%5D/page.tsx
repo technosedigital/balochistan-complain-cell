@@ -8,6 +8,8 @@ import * as dbService from '@/lib/dbService';
 import { ArrowLeft, MapPin, Compass, Navigation, Landmark, Landmark as SiteIcon } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 interface LocationDetailPageProps {
   params: Promise<{ id: string }>;
 }
