@@ -22,9 +22,28 @@ export async function generateMetadata({ params }: NewsDetailPageProps) {
     };
   }
 
+  const imageUrl = article.image || "/og-image.png";
+
   return {
     title: `${article.title} | Balochistan Connect`,
     description: article.content.substring(0, 160),
+    openGraph: {
+      title: `${article.title} | Balochistan Connect`,
+      description: article.content.substring(0, 160),
+      images: [
+        {
+          url: imageUrl,
+          alt: article.title,
+        }
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${article.title} | Balochistan Connect`,
+      description: article.content.substring(0, 160),
+      images: [imageUrl],
+    },
   };
 }
 

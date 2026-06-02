@@ -22,9 +22,28 @@ export async function generateMetadata({ params }: LocationDetailPageProps) {
     };
   }
 
+  const imageUrl = loc.images && loc.images.length > 0 ? loc.images[0] : "/og-image.png";
+
   return {
     title: `${loc.title} - Tourism | Balochistan Connect`,
     description: loc.description.substring(0, 160),
+    openGraph: {
+      title: `${loc.title} - Tourism | Balochistan Connect`,
+      description: loc.description.substring(0, 160),
+      images: [
+        {
+          url: imageUrl,
+          alt: loc.title,
+        }
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${loc.title} - Tourism | Balochistan Connect`,
+      description: loc.description.substring(0, 160),
+      images: [imageUrl],
+    },
   };
 }
 
