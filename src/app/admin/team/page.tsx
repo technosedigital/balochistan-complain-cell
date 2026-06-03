@@ -39,10 +39,6 @@ export default function AdminTeamPage() {
   const [email, setEmail] = useState('');
   const [facebook, setFacebook] = useState('');
 
-  useEffect(() => {
-    loadTeam();
-  }, []);
-
   const loadTeam = async () => {
     setLoading(true);
     try {
@@ -56,6 +52,10 @@ export default function AdminTeamPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    loadTeam();
+  }, []);
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -190,7 +190,7 @@ export default function AdminTeamPage() {
           
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Officer Name</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Officer Name</label>
               <Input
                 placeholder="e.g. Hammad Khan"
                 value={name}
@@ -200,7 +200,7 @@ export default function AdminTeamPage() {
             </div>
             
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Position / Designation</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Position / Designation</label>
               <Input
                 placeholder="e.g. Director General IT"
                 value={role}
@@ -212,7 +212,7 @@ export default function AdminTeamPage() {
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Profile Photo URL</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Profile Photo URL</label>
               <Input
                 placeholder="https://images.unsplash.com/..."
                 value={image}
@@ -222,7 +222,7 @@ export default function AdminTeamPage() {
             </div>
             
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Official Email</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Official Email</label>
               <Input
                 type="email"
                 placeholder="e.g. hammad@balochistan.gov.pk"
@@ -234,7 +234,7 @@ export default function AdminTeamPage() {
 
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Twitter Link</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Twitter Link</label>
               <Input
                 placeholder="https://twitter.com/..."
                 value={twitter}
@@ -242,7 +242,7 @@ export default function AdminTeamPage() {
               />
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">LinkedIn Link</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">LinkedIn Link</label>
               <Input
                 placeholder="https://linkedin.com/in/..."
                 value={linkedin}
@@ -250,7 +250,7 @@ export default function AdminTeamPage() {
               />
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Facebook Link</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Facebook Link</label>
               <Input
                 placeholder="https://facebook.com/..."
                 value={facebook}
@@ -260,7 +260,7 @@ export default function AdminTeamPage() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Officer Biography</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Officer Biography</label>
             <Textarea
               placeholder="Short bio regarding responsibilities or department overview..."
               value={bio}

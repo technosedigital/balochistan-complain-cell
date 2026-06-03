@@ -32,10 +32,6 @@ export default function AdminNewsPage() {
   const [category, setCategory] = useState<'Announcement' | 'Press Release' | 'Development' | 'Community' | 'Tourism'>('Announcement');
   const [image, setImage] = useState('');
 
-  useEffect(() => {
-    loadNews();
-  }, []);
-
   const loadNews = async () => {
     setLoading(true);
     try {
@@ -49,6 +45,10 @@ export default function AdminNewsPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    loadNews();
+  }, []);
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -167,7 +167,7 @@ export default function AdminNewsPage() {
         <form onSubmit={handleCreate} className="space-y-4 py-2">
           
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-650 dark:text-gray-400">Title</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Title</label>
             <Input
               placeholder="e.g. Clean drinking water plants installed"
               value={title}
@@ -178,7 +178,7 @@ export default function AdminNewsPage() {
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Category</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Category</label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value as any)}
@@ -193,7 +193,7 @@ export default function AdminNewsPage() {
             </div>
             
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Image URL</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Image URL</label>
               <div className="relative">
                 <Input
                   placeholder="https://images.unsplash.com/..."
@@ -209,7 +209,7 @@ export default function AdminNewsPage() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Content</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Content</label>
             <Textarea
               placeholder="Provide full description of the announcement..."
               value={content}

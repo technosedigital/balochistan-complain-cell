@@ -68,13 +68,13 @@ function LoginContent() {
           </div>
 
           {error && (
-            <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/20 text-red-650 border border-red-200/50 text-xs font-semibold">
+            <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 border border-red-200/50 text-xs font-semibold">
               {error}
             </div>
           )}
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-650 dark:text-gray-400">Email Address</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Email Address</label>
             <div className="relative">
               <Input
                 type="email"
@@ -91,7 +91,7 @@ function LoginContent() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-650 dark:text-gray-400">Password</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Password</label>
             <div className="relative">
               <Input
                 type="password"

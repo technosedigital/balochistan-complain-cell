@@ -33,10 +33,6 @@ export default function AdminEventsPage() {
   const [date, setDate] = useState('');
   const [image, setImage] = useState('');
 
-  useEffect(() => {
-    loadEvents();
-  }, []);
-
   const loadEvents = async () => {
     setLoading(true);
     try {
@@ -50,6 +46,10 @@ export default function AdminEventsPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    loadEvents();
+  }, []);
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -172,7 +172,7 @@ export default function AdminEventsPage() {
         <form onSubmit={handleCreate} className="space-y-4 py-2">
           
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Event Title</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Event Title</label>
             <Input
               placeholder="e.g. Ziarat Cherry Blossom Mela"
               value={title}
@@ -183,7 +183,7 @@ export default function AdminEventsPage() {
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Date</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Date</label>
               <Input
                 type="date"
                 value={date}
@@ -193,7 +193,7 @@ export default function AdminEventsPage() {
             </div>
             
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Image URL</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Image URL</label>
               <Input
                 placeholder="https://images.unsplash.com/..."
                 value={image}
@@ -204,7 +204,7 @@ export default function AdminEventsPage() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Location Venue</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Location Venue</label>
             <Input
               placeholder="e.g. Prospect Point, Ziarat Valley"
               value={location}
@@ -214,7 +214,7 @@ export default function AdminEventsPage() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Event Description</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Event Description</label>
             <Textarea
               placeholder="Provide a detailed agenda or itinerary for the event..."
               value={description}

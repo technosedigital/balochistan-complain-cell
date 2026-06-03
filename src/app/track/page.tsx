@@ -108,7 +108,7 @@ function TrackingContent() {
 
       {/* Error State */}
       {error && (
-        <div className="p-4 bg-red-50 dark:bg-red-950/20 text-red-650 border border-red-200/50 rounded-2xl max-w-xl mx-auto text-xs font-bold text-center">
+        <div className="p-4 bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 border border-red-200/50 rounded-2xl max-w-xl mx-auto text-xs font-bold text-center">
           {error}
         </div>
       )}
@@ -273,7 +273,7 @@ function TrackingContent() {
                   <div className="space-y-4">
                     {complaint.notes.map((note: any, idx: number) => (
                       <div key={idx} className="border-l-2 border-primary/40 pl-3.5 space-y-1">
-                        <p className="text-xs text-gray-650 dark:text-gray-300 font-semibold leading-relaxed">{note.text}</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-300 font-semibold leading-relaxed">{note.text}</p>
                         <div className="flex justify-between text-[10px] text-gray-500 font-bold">
                           <span>By: {note.author}</span>
                           <span>

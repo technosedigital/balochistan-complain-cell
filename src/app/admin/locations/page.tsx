@@ -38,10 +38,6 @@ export default function AdminLocationsPage() {
   const [directions, setDirections] = useState('');
   const [nearby, setNearby] = useState('');
 
-  useEffect(() => {
-    loadLocations();
-  }, []);
-
   const loadLocations = async () => {
     setLoading(true);
     try {
@@ -55,6 +51,10 @@ export default function AdminLocationsPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    loadLocations();
+  }, []);
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -198,7 +198,7 @@ export default function AdminLocationsPage() {
         <form onSubmit={handleCreate} className="space-y-4 py-2">
           
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Destination Name</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Destination Name</label>
             <Input
               placeholder="e.g. Kund Malir Golden Beach"
               value={title}
@@ -209,7 +209,7 @@ export default function AdminLocationsPage() {
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Category</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Category</label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value as any)}
@@ -224,7 +224,7 @@ export default function AdminLocationsPage() {
             </div>
             
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">District Location</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">District Location</label>
               <Input
                 placeholder="e.g. Lasbela"
                 value={district}
@@ -236,7 +236,7 @@ export default function AdminLocationsPage() {
 
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Latitude</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Latitude</label>
               <Input
                 placeholder="e.g. 25.3941"
                 value={lat}
@@ -245,7 +245,7 @@ export default function AdminLocationsPage() {
               />
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Longitude</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Longitude</label>
               <Input
                 placeholder="e.g. 65.4593"
                 value={lng}
@@ -254,7 +254,7 @@ export default function AdminLocationsPage() {
               />
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Images URL</label>
+              <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Images URL</label>
               <Input
                 placeholder="https://images.unsplash.com/..."
                 value={image}
@@ -265,7 +265,7 @@ export default function AdminLocationsPage() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Attractions (Comma separated)</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Attractions (Comma separated)</label>
             <Input
               placeholder="e.g. Golden sand swims, Canyons, Coastal highway drive"
               value={attractions}
@@ -274,7 +274,7 @@ export default function AdminLocationsPage() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Nearby Places (Comma separated)</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Nearby Places (Comma separated)</label>
             <Input
               placeholder="e.g. Hingol National Park, Nani Mandir Temple"
               value={nearby}
@@ -283,7 +283,7 @@ export default function AdminLocationsPage() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Travel Directions</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Travel Directions</label>
             <Input
               placeholder="e.g. Take the Makran Coastal Highway from Karachi towards Gwadar..."
               value={directions}
@@ -292,7 +292,7 @@ export default function AdminLocationsPage() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-gray-655 dark:text-gray-400">Detailed Description</label>
+            <label className="text-xs font-bold text-gray-600 dark:text-gray-400">Detailed Description</label>
             <Textarea
               placeholder="Provide a detailed description of the spot..."
               value={description}

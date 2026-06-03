@@ -125,7 +125,7 @@ export default function AdminCharts({ complaints }: AdminChartsProps) {
         {/* Custom Legends list */}
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 mt-2">
           {statusData.map((entry, idx) => (
-            <div key={idx} className="flex items-center gap-1.5 text-[10px] font-bold text-gray-650 dark:text-gray-400">
+            <div key={idx} className="flex items-center gap-1.5 text-[10px] font-bold text-gray-600 dark:text-gray-400">
               <span className="h-2 w-2 rounded-full" style={{ backgroundColor: COLORS[idx % COLORS.length] }}></span>
               <span>{entry.name} ({entry.value})</span>
             </div>

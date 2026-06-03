@@ -400,7 +400,7 @@ export default function ComplaintPage() {
                               ? p === 'low' ? 'bg-blue-600 border-blue-600 text-white shadow-sm'
                                 : p === 'medium' ? 'bg-amber-500 border-amber-500 text-white shadow-sm'
                                 : p === 'high' ? 'bg-orange-500 border-orange-500 text-white shadow-sm'
-                                : 'bg-red-650 border-red-650 text-white shadow-sm'
+                                : 'bg-red-600 border-red-600 text-white shadow-sm'
                               : 'bg-transparent text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                           }`}>
                             {p}
@@ -491,7 +491,7 @@ export default function ComplaintPage() {
                 </div>
 
                 {submitResult && !submitResult.success && (
-                  <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/20 text-red-650 border border-red-200/50 text-xs font-semibold">
+                  <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 border border-red-200/50 text-xs font-semibold">
                     Error submitting: {submitResult.error}
                   </div>
                 )}

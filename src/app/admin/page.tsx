@@ -66,7 +66,7 @@ export default async function AdminDashboardPage() {
         </div>
         
         {urgentCount > 0 && (
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-50 dark:bg-red-950/20 text-red-650 border border-red-200/50 text-xs font-bold animate-pulse">
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 border border-red-200/50 text-xs font-bold animate-pulse">
             <AlertOctagon className="h-4.5 w-4.5" />
             <span>{urgentCount} Urgent Tickets Active</span>
           </div>
