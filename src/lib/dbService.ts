@@ -674,21 +674,27 @@ export async function seedDatabase() {
     }
     
     // Seed default admin in DB if missing
-    const userCount = await User.countDocuments({ role: 'admin' });
-    if (userCount === 0) {
+    const adminExists = await User.findOne({ email: 'admin@balochistan.gov.pk' });
+    if (!adminExists) {
       await User.create({
         name: 'Balochistan Admin Officer',
         email: 'admin@balochistan.gov.pk',
         password: 'admin123',
         role: 'admin',
       });
+      console.log('Seeded default admin account.');
+    }
+
+    // Seed default citizen in DB if missing
+    const citizenExists = await User.findOne({ email: 'citizen@balochistan.gov.pk' });
+    if (!citizenExists) {
       await User.create({
         name: 'Sardar Khan Baloch',
         email: 'citizen@balochistan.gov.pk',
         password: 'citizen123',
         role: 'citizen',
       });
-      console.log('Seeded default admin and citizen accounts in database.');
+      console.log('Seeded default citizen account.');
     }
   } catch (err) {
     console.error('Seeding database failed:', err);
