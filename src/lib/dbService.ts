@@ -758,3 +758,23 @@ export async function createUser(data: any) {
     role: 'citizen',
   };
 }
+
+export async function getUsers() {
+  if (await isDbConnected()) {
+    return await User.find().sort({ createdAt: -1 });
+  }
+  return [
+    {
+      name: 'Balochistan Admin Officer',
+      email: 'admin@balochistan.gov.pk',
+      role: 'admin',
+      createdAt: new Date('2026-05-10T00:00:00Z'),
+    },
+    {
+      name: 'Sardar Khan Baloch',
+      email: 'citizen@balochistan.gov.pk',
+      role: 'citizen',
+      createdAt: new Date('2026-06-01T00:00:00Z'),
+    },
+  ];
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import Badge from '@/components/ui/badge';
 import Button from '@/components/ui/button';
 import Input from '@/components/ui/input';
@@ -10,6 +10,7 @@ import SafeMap from '@/components/DynamicMap';
 import { updateComplaintStatusAction } from '@/app/actions';
 import { Search, Eye, Filter, CheckCircle2, User, Phone, MapPin, AlertCircle, FileText, ClipboardList } from 'lucide-react';
 import { useSession } from 'next-auth/react';
+import { useSearchParams } from 'next/navigation';
 
 interface ComplaintItem {
   _id: string;
@@ -58,12 +59,15 @@ const departments = [
   'Civil Defence & Public Safety',
 ];
 
-export default function AdminComplaintsClient({ initialComplaints }: AdminComplaintsClientProps) {
+function ComplaintsContent({ initialComplaints }: AdminComplaintsClientProps) {
   const { data: session } = useSession();
   const adminName = session?.user?.name || 'Admin Officer';
 
+  const searchParams = useSearchParams();
+  const initialSearch = searchParams.get('search') || '';
+
   const [complaints, setComplaints] = useState<ComplaintItem[]>(initialComplaints);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(initialSearch);
   const [activeStatus, setActiveStatus] = useState('ALL');
   const [activePriority, setActivePriority] = useState('ALL');
 
@@ -80,6 +84,7 @@ export default function AdminComplaintsClient({ initialComplaints }: AdminCompla
       const matchesSearch = 
         c.complaintId.toLowerCase().includes(search.toLowerCase()) ||
         c.name.toLowerCase().includes(search.toLowerCase()) ||
+        c.email.toLowerCase().includes(search.toLowerCase()) ||
         c.category.toLowerCase().includes(search.toLowerCase()) ||
         c.description.toLowerCase().includes(search.toLowerCase());
 
@@ -388,5 +393,13 @@ export default function AdminComplaintsClient({ initialComplaints }: AdminCompla
       </Dialog>
 
     </div>
+  );
+}
+
+export default function AdminComplaintsClient({ initialComplaints }: AdminComplaintsClientProps) {
+  return (
+    <Suspense fallback={<div className="text-center py-10 font-bold text-gray-500">Loading complaints...</div>}>
+      <ComplaintsContent initialComplaints={initialComplaints} />
+    </Suspense>
   );
 }

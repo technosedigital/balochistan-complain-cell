@@ -319,3 +319,12 @@ export async function registerUserAction(data: {
     return { success: false, error: error.message || 'Registration failed.' };
   }
 }
+
+export async function getUsersAction() {
+  try {
+    const users = await dbService.getUsers();
+    return { success: true, data: JSON.parse(JSON.stringify(users)) };
+  } catch (error: any) {
+    return { success: false, error: error.message || 'Failed to fetch users.' };
+  }
+}
